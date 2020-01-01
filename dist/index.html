@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Easy-Pie Chart v2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2>Canvas</h2>
+            <div class="chart" id="canvas-chart" data-percent="80"></div>
+        </div>
+        <div>
+            <h2>SVG</h2>
+            <div class="chart" id="svg-chart" data-percent="23"></div>
+        </div>
+    </div>
+    <script src="easypiechart.js"></script>
+    <script>
+        import { EasyPieChart } from './easypiechart';
+        const easy = new EasyPieChart(document.getElementById("canvas-chart"), {
+            barColor: '#69c',
+            scaleColor: '#00378b',
+            lineWidth: 10
+        });
+
+        const svg = new EasyPieChart(document.getElementById("svg-chart"), {
+            renderer: "SVG",
+            lineWidth: 10,
+            onStep: (from, to, percent) => {
+                document.querySelector('#svg-chart span').innerHTML = Math.round(percent).toString();
+            }
+        });
+    </script>
+</body>
+</html>

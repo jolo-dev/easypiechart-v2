@@ -1,0 +1,36 @@
+body {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  margin: 5% auto;
+  grid-column-gap: 5%;
+  align-items: center;
+  justify-items: center;
+}
+
+/* .chart {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  text-align: center;
+} */
+.chart canvas,
+.chart svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* .percent {
+  line-height: 110px;
+  z-index: 2;
+} */
+.percent:after {
+  content: "%";
+  margin-left: 0.1em;
+  font-size: 0.8em;
+}
