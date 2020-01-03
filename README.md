@@ -1,7 +1,7 @@
 # Easypiechart-v2
 This is a rework from the v1 [easy-pie-chart](https://github.com/rendro/easy-pie-chart).
 
-It is rewritten with Typescript.
+It is rewritten in Typescript.
 
 # Renderer
 It supports HTML-Canvas and SVG.

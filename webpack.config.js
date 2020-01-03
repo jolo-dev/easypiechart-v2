@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',
   entry: './src/easyPieChart.ts',
   devtool: 'inline-source-map',
   module: {
