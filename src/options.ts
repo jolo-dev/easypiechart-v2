@@ -1,4 +1,4 @@
-export interface Options {
+export interface PieOptions {
     barColor: string,
     trackColor: string,
     scaleColor: string,

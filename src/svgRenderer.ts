@@ -20,6 +20,7 @@ export class SVGRenderer extends Renderer {
             width: this.options.size,
             height: this.options.size
         });
+        this.svg.setAttribute('style', 'position: absolute;top: 0;left: 0;')
 
         // create track if necessary
         if (this.options.trackColor) {
