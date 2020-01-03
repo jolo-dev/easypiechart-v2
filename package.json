@@ -2,19 +2,36 @@
   "name": "easy-pie-chart-typescript",
   "version": "0.0.1",
   "description": "Rework of the Easy-Pie-Chart with Typescript",
-  "main": "index.js",
+  "main": "dist/easypiechart.js",
+  "typings": "dist/easypiechart.d.ts",
+  "private": false,
   "scripts": {
-    "build": "webpack",
+    "build": "npm run clean && webpack",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open --hot",
-    "test": "jest"
+    "test": "jest",
+    "parcel": "parcel __test__/index.html",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "visualisation",
-    "easy-pie"
+    "easy-pie",
+    "graph",
+    "circular progress",
+    "precent",
+    "progress bar"
   ],
   "author": "John Nguyen <johnyscrazy@gmail.com>",
-  "license": "ISC",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    },
+    {
+      "type": "GPL",
+      "url": "http://www.opensource.org/licenses/gpl-license.php"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jolo-dev/easypiechart-v2"
@@ -23,9 +40,10 @@
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-typescript": "^7.7.7",
+    "@types/jest": "^24.0.25",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
-    "@types/jest": "^24.0.25",
+    "parcel-bundler": "^1.12.4",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",

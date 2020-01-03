@@ -1,4 +1,4 @@
-interface Options {
+export interface PieOptions {
     barColor: string,
     trackColor: string,
     scaleColor: string,
@@ -14,3 +14,4 @@ interface Options {
     onStep(_from:number, _to:number, _currentValue:number) : void,
     onStop(_from:number, _to:number) : void
 }
+

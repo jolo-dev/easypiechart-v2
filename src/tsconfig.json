@@ -5,8 +5,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "traceResolution": true,
+    "declaration": true
   },
   "files": [
-    "./app.ts"
+    "./easyPieChart.ts"
   ]
 }
