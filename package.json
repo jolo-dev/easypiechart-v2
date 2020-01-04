@@ -1,16 +1,13 @@
 {
   "name": "easy-pie-chart-typescript",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rework of the Easy-Pie-Chart with Typescript",
-  "main": "dist/easypiechart.js",
-  "typings": "dist/easypiechart.d.ts",
+  "main": "dist/easyPieChart.js",
   "private": false,
   "scripts": {
-    "build": "npm run clean && webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open --hot",
     "test": "jest",
-    "parcel": "parcel __test__/index.html",
+    "start": "parcel index.html",
+    "build": "npm run clean && parcel build src/easyPieChart.ts",
     "clean": "rm -rf dist"
   },
   "keywords": [
@@ -45,10 +42,7 @@
     "jest": "^24.9.0",
     "parcel-bundler": "^1.12.4",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "typescript": "^3.7.4"
   },
   "dependencies": {}
 }

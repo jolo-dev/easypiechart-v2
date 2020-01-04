@@ -1,9 +1,12 @@
 # Easypiechart-v2
+
 This is a rework from the v1 [easy-pie-chart](https://github.com/rendro/easy-pie-chart).
+The main reason is to export that **awesome** chart to a module.
 
 It is rewritten in Typescript.
 
 # Renderer
+
 It supports HTML-Canvas and SVG.
 ![easypiechart](./easypiechart-v2.gif)
 
@@ -14,10 +17,10 @@ It supports HTML-Canvas and SVG.
 
 <script src="/path/to/easypiechart.js"></script>
 <script>
-    var element = document.querySelector('.chart');
-    new EasyPieChart(element, {
-        // your options goes here
-    });
+  var element = document.querySelector(".chart");
+  new EasyPieChart(element, {
+    // your options goes here
+  });
 </script>
 ```
 
@@ -90,8 +93,10 @@ You can pass these options to the initialize function to set a custom look and f
 
 # Development
 
-[Webpack](https://webpack.js.org/) is used for the bundling which bundles the TS-Files in the `src`- folder.
-By simply using the `npm run build` command, it generates a `easypiechart.js` in the `dist`- folder.
+[Parcel](https://parceljs.org/) is used for the bundling which bundles the TS-Files in the `src`- folder.
+By simply using the `npm run build` command, it generates a `easyPieChart.js` in the `dist`- folder.
+
+**Note:** Please, notice the camelcasing!
 
 ## Get Started
 
@@ -99,14 +104,14 @@ By simply using the `npm run build` command, it generates a `easypiechart.js` in
 npm i
 npm run start
 ```
-Then you could simply point the `easypiechart.js` in you HTML.
-```
-<script src="dist/easypiechart.js"></script>
-```
 
-In the `dist`-Folder is an `index.html` as an example.
+For now, I have pointed in the JS-File `app.js` to the `dist`- Folder and its `easyPieChart.js`.
+For **Development**, you should point to the `src/easyPieChart.ts` in `app.js`.
+
+```
+<script src="src/easyPieChart.ts"></script>
+```
 
 ## Test
 
 TODO: Jest
-
