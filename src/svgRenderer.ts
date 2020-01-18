@@ -6,13 +6,13 @@ export class SVGRenderer extends Renderer {
     private _hasScale: boolean;
     private arc: any;
     private svg: any;
-    
-    constructor(el: HTMLElement, options: any){
+
+    constructor(el: HTMLElement, options: any) {
         super(options);
-        this._hasScale = (this.options.scaleColor && this.options.scaleLength); 
-        if(this._hasScale){
+        this._hasScale = (this.options.scaleColor && this.options.scaleLength);
+        if (this._hasScale) {
             this.radius -= this.options.scaleLength + 2; // 2 is the distance between scale and bar
-        }else{
+        } else {
             this.radius = (this.options.size - this.options.lineWidth) / 2;
         }
         this.svg = this.createElement('svg', {
@@ -41,13 +41,13 @@ export class SVGRenderer extends Renderer {
 
         // create arc (actual chart)
         this.arc = this.createElement('path', {
-            stroke: typeof(this.options.barColor) === 'function' ? this.options.barColor(0) : this.options.barColor,
+            stroke: typeof (this.options.barColor) === 'function' ? this.options.barColor(0) : this.options.barColor,
             'stroke-width': this.options.lineWidth,
             'stroke-linecap': this.options.lineCap,
             fill: 'none'
         });
         if (this.options.rotate) {
-            this.arc.setAttribute('transform', ['rotate(', this.options.rotate, ',', this.options.size/2, ',', this.options.size/2, ')'].join(''));
+            this.arc.setAttribute('transform', ['rotate(', this.options.rotate, ',', this.options.size / 2, ',', this.options.size / 2, ')'].join(''));
         }
         this.svg.appendChild(this.arc);
 
@@ -61,17 +61,17 @@ export class SVGRenderer extends Renderer {
 	 * @param  {object} attributes Attribute list of the element
 	 * @return {element}           Created element
 	 */
-    private createElement(type: string, attributes: {[index: string]: any}){
+    private createElement(type: string, attributes: { [index: string]: any }) {
         var el = document.createElementNS(this._svgNS, type);
 
-		if (attributes) {
-			for (var i in attributes) {
-				if (attributes.hasOwnProperty(i)) {
-					el.setAttribute(i, attributes[i]);
-				}
-			}
-		}
-		return el;
+        if (attributes) {
+            for (var i in attributes) {
+                if (attributes.hasOwnProperty(i)) {
+                    el.setAttribute(i, attributes[i]);
+                }
+            }
+        }
+        return el;
     }
 
     clear() {
@@ -82,13 +82,13 @@ export class SVGRenderer extends Renderer {
         const g = this.createElement('g', {
             transform: 'translate(55, 55)'
         });
-        for (let i = 0; i<24; ++i) {
+        for (let i = 0; i < 24; ++i) {
             let length = this.options.scaleLength;
             let width = 1;
             // Each quarter should be bigger
-            if (i%6 !== 0) {
+            if (i % 6 !== 0) {
                 length *= .6;
-            }else {
+            } else {
                 length *= 1.2;
                 width = 3;
             }
@@ -99,7 +99,7 @@ export class SVGRenderer extends Renderer {
                 stroke: this.options.scaleColor,
                 'stroke-width': width,
                 fill: 'none',
-                transform: ['rotate(' + deg + ') translate(0,', this.options.size/2 - this.options.scaleLength, ')'].join('')
+                transform: ['rotate(' + deg + ') translate(0,', this.options.size / 2 - this.options.scaleLength, ')'].join('')
             }));
         }
         this.svg.appendChild(g);
@@ -107,32 +107,32 @@ export class SVGRenderer extends Renderer {
 
     draw(percent: number) {
         const deg = 3.6 * percent;
-		const rad = deg * Math.PI / 180;
-		const x = this.options.size / 2 + this.radius * Math.sin(rad);
-		const y = this.options.size / 2 - this.radius * Math.cos(rad);
-		let offsetTop = this.options.lineWidth / 3;
-        
-        if (this._hasScale) {
-			offsetTop += this.options.scaleLength + 10;
-        }
-        
-		const path = [
-			'M',
-			this.options.size / 2,
-			offsetTop,
-			'A',
-			this.radius,
-			this.radius,
-			0,
-			+(deg > 180),
-			1,
-			x,
-			y
-		];
-		this.arc.setAttribute('d', path.join(' '));
+        const rad = deg * Math.PI / 180;
+        const x = this.options.size / 2 + this.radius * Math.sin(rad) - 5;
+        const y = this.options.size / 2 - this.radius * Math.cos(rad);
+        let offsetTop = this.options.lineWidth / 3;
 
-		if (typeof(this.options.barColor) === 'function') {
-			this.arc.setAttribute('stroke', this.options.barColor(percent));
-		}
+        if (this._hasScale) {
+            offsetTop += this.options.scaleLength + 10;
+        }
+
+        const path = [
+            'M',
+            this.options.size / 2,
+            offsetTop,
+            'A',
+            this.radius,
+            this.radius,
+            0,
+            +(deg > 180),
+            1,
+            x,
+            y
+        ];
+        this.arc.setAttribute('d', path.join(' '));
+
+        if (typeof (this.options.barColor) === 'function') {
+            this.arc.setAttribute('stroke', this.options.barColor(percent));
+        }
     }
 }
