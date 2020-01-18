@@ -1,4 +1,4 @@
-import { EasyPieChart } from "./dist/easyPieChart";
+import { EasyPieChart } from "./src/easyPieChart";
 const easy = new EasyPieChart(document.getElementById("canvas-chart"), {
   barColor: "#69c",
   scaleColor: "#00378b",
